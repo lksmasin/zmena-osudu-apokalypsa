@@ -207,7 +207,8 @@ def zacni_hru():
                                             
                                             
                                             if "samoobsluhy" in mesto or "samoobsluha" in mesto:
-                                                print("\nPřicházíš do ")
+                                                print("\nPřicházíš do samoobsluhy..")
+                                                cekej(2)
 
 
                     elif "ven" in dum_hrouceni or "vybehni" in dum_hrouceni:
