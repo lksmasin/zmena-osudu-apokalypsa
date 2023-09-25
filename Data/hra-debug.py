@@ -209,6 +209,21 @@ def zacni_hru():
                                             if "samoobsluhy" in mesto or "samoobsluha" in mesto:
                                                 print("\nPřicházíš do samoobsluhy..")
                                                 cekej(2)
+                                                print("Obchoj je celý poničený a vykradený.")
+                                                cekej(2)
+                                                print("Vedle pultu uvidíš dva lidi hádající se o tom že by bylo možné že momozemštani přicházejí z nějaké jiné třeba 4D dimenze.")
+                                                cekej("7.5")
+                                                print("Zahlédly tě.")
+                                                cekej(3)
+                                                print("Přicházíš k nim..")
+                                                cekej(2)
+                                                print("Podívaly se na tebe..")
+                                                cekej(4)
+                                                print("Jeden z nich se ptá 'Kdo jsi, a co chceš'.")
+                                                print("\n---")
+                                                while True:
+                                                    obchod = input("Obchod> ")
+                                                    #Dodělat
 
 
                     elif "ven" in dum_hrouceni or "vybehni" in dum_hrouceni:

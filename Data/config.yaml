@@ -1,2 +1,3 @@
-debug_mode: true    # Zapne/vypne DEBUGMODE
+debug_mode: true    # Zapne/vypne DEBUGMODE.
 zadne_pauzy: true   # Zapne/vypne pauzu mezi dalším řádkem. (time.sleep)
+# TODO: animovany_text: false # Zapne/vypne animaci praní textu, pokud je toto zapnuto pro sprácné fungování nastav "zadne_pauzy: true"!
