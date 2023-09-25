@@ -33,6 +33,7 @@ Poznámky:
 - Před spuštěním si ověřte, zda máte nainstalované potřebné moduly (`pygame`, `colorama`, `pick`, `threading`).
 - Pro spuštění hry se vyžaduje soubor `hra.py` (měl by se nacházet ve složce Data).
 - Soubor `hra.py` vyžaduje další doplňkové soubory (hudbu) která by se měla nacházet ve složce Data/hudba
+- Tento projekt je licencován pod MIT Licencí - viz soubor [LICENSE](LICENSE) pro více informací.
 
 
-![Logo](data/obrazky/logo.png)
+![Logo](Data/obrazky/logo.png)
