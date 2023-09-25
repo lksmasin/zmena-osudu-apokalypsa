@@ -36,4 +36,4 @@ Poznámky:
 - Tento projekt je licencován pod MIT Licencí - viz soubor [LICENSE](LICENSE) pro více informací.
 
 
-![Logo](data/obrazky/logo.png)
+![Logo](Data/obrazky/logo.png)
