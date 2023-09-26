@@ -252,13 +252,14 @@ def zacni_hru():
                                                             
                                                             
                                                             if "ano" in lide or "jo" in lide or "dobre" in lide or "jasne" in lide or "ok" in lide:
-                                                                text("Pokračování příště..")
+                                                                text("\nPokračování příště..")
+                                                                # Dodělat
                                                                 print("Sleduj GitHub repozitář pro aktualizace! (www.github.com/lksmasin)")
                                                                 konec_hry()
                                                                 
                                                                 
                                                             elif("ne" in lide):
-                                                                text("On: 'Dobře takže budeme muset přistoupit na jiné řešení.")
+                                                                text("\nOn: 'Dobře takže budeme muset přistoupit na jiné řešení.")
                                                                 cekej(4)
                                                                 text("Udělá pár kroků a popadne pádlo z potřeb pro vodáky...")
                                                                 time.sleep(3)
@@ -268,8 +269,36 @@ def zacni_hru():
                                                                 
                                                                 
                                                             else:
-                                                                print("Pokus se napsat jednodušší odpověď.")
-                                                            
+                                                                print("\nPokus se napsat jednodušší odpověď.")
+                                                    
+                                                    
+                                                    else:
+                                                        text("\nOn: Hele to asi nepůjde!")
+                                                        time.sleep(3)
+                                                        text("Konec 4...")
+                                                        cekej(2)
+                                                        text("Vypadá to že jsi se jim nelíbil..")
+                                                        cekej(3)
+                                                        text("Nápověda: Tato cesta není špatně, zkus to ale trochu jinak třeba se dostaneš dále.")
+                                                        
+
+                                            elif("rozhledni" in mesto):
+                                                text("\nNedaleko je samoobsluha ta by se ti velmy hodila protože máš hlad.")
+                                                cekej(5)
+                                                text("Kousek od tebe je i skupinka lidí která něco volá. Asi nějací blázni nebo tak něco..")
+                                            
+                                            
+                                            else: 
+                                                text("\nNerozumím ti, zkus to jinak.")
+                                                
+                                                
+                                    else:
+                                        text("\nNechi nic říkat ale myslím že tohle nepůjde..")
+                                        
+                                        
+                            else:
+                                text("\nTohle nevypadá jako řešení, zkus to trošku jinak.")
+
 
                     elif "ven" in dum_hrouceni or "vybehni" in dum_hrouceni:
                         text("\nVyběhl jsi ven a vypadá to že jsi celý..")
@@ -297,6 +326,17 @@ def zacni_hru():
                         cekej(5)
                         text("Podle notesu by jsi měl nastoupit do auta a odjet do města zastavit se na tamějším úřadě pro evakuaci.")
                         # Dodělat
+                        
+                        
+                    elif("zpatky" in dum_notes or "zpet" in dum_notes):
+                        text("\nJsi spátky tam kde jsi začal.")
+                        cekej(4)
+                        text("Teď už můžeš jít jen a pouze na jih")
+                        zacni_hru()
+                        
+                        
+                    else:
+                        text("\nTohle nevypadá že by to mělo fungovat. Zkus to jinak.")
                 
 
             else:
