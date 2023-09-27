@@ -56,6 +56,7 @@ def prehraj_hudbu(seznam_souboru):
             pass
         cekej(1)  # Počkej chvilku před přechodem k další písničce
 
+# Funkce DEBUGMODE byly odstraněny aby nebyly použity pro podvádění.
 
 def uvod():
     #text("Vítej ve hře 'Změna osudu: Apokalypsa'")
@@ -88,7 +89,7 @@ def zacni_hru():
         text("Vidíš lékarničku a stůl..")
         text("\n---")
         while True:
-            dum = input("V DOMĚ> ")
+            dum = input("V domě> ")
 
 
             if "lekarnicku" in dum or "lekarnicka" in dum:
@@ -99,7 +100,7 @@ def zacni_hru():
                 text("Můžeš rychle vyběhnout nebo zkusit vzít notes který jsi spatřil na stole a proskočit oknem")
                 text("\n---")
                 while True:
-                    dum_hrouceni = input("V DOMĚ> ")
+                    dum_hrouceni = input("V domě> ")
 
 
                     if "notes" in dum_hrouceni:
@@ -316,16 +317,86 @@ def zacni_hru():
                 text("\nNa stole je jakýsi notes, vezmeš jej.")
                 text("\n---")
                 while True:
-                    dum_notes = input("V DOMĚ> ")
+                    dum_notes = input("V domě> ")
                     
                     
-                    if "precti" in dum_notes or "notes" in dum_hrouceni or "otevri" in dum_hrouceni:
+                    if "precti" in dum_notes or "notes" in dum_notes or "otevri" in dum_notes:
                         text("\nZápis je velmi nečitelný, většinu z něho nemůžeš přečíst.")
                         cekej(3)
                         text("Vypadá to že obsahuje pár informací o tom co se stalo a o tom co se děje a jak mám dále postupovat.")
                         cekej(5)
                         text("Podle notesu by jsi měl nastoupit do auta a odjet do města zastavit se na tamějším úřadě pro evakuaci.")
-                        # Dodělat
+                        text("\n---")
+                        while True:
+                            notes_rozhodnuti = input("Notes> ")
+                            
+                            
+                            if "notes" in notes_rozhodnuti or "notesu" in notes_rozhodnuti or "udelej" in notes_rozhodnuti or "pokracuj" in notes_rozhodnuti:
+                                text("\nMusíš se dostat do města.. Problém je v tom že nemáš jak.")
+                                cekej(5)
+                                text("Chtělo by to auto..")
+                                cekej(3)
+                                text("POZNÁMKA: Zkus se rozhlédnou kolem.")
+                                
+                                
+                            elif("rozhledni" in notes_rozhodnuti or "prozkoumej" in notes_rozhodnuti):
+                                text("\nNacházíš se ve starém domu. V místnosti která by se dala nazvat obývákem.")
+                                cekej(6)
+                                text("Tento dům má další dvě místnosti, koupelnu a kuchyň.")
+                                cekej(5)
+                                text("K domu spadá něco co vypadá jako garáž.")
+                                
+                                
+                            elif("garaz" in notes_rozhodnuti or "garaze" in notes_rozhodnuti):
+                                text("\nPřicházíš do garáže..")
+                                cekej(3)
+                                text("Podle očekávání tady žádné auto není ale je zde staré kolo.")
+                                text("\n---")
+                                while True:
+                                    garaz = input("Garáž> ")
+                                    
+                                    
+                                    if "kolo" in garaz or "bicikl" in garaz or "nasedni" in garaz or "nastup" in garaz or "jed" in garaz:
+                                        text("\nTohle kolo má asi už něco za sebou..")
+                                        cekej(4)
+                                        text("Je celé zrezavělé, pneumatiky jsou vypuštěné.")
+                                        cekej(4)
+                                        text("Naštěstí kousek vedle kola je stůl a na něm pumpička, nafoukneš kolo a můžeš jet.")
+                                        cekej(6)
+                                        text("Nafukování kola - čekej 10s . . .")
+                                        time.sleep(10.5)
+                                        text("Cesta do města - čekej 25s . . .")
+                                        time.sleep(12)
+                                        text("Nastal problém! Při cestě jsi si všiml že se pneumatiky vyfukují velmi rychle.. už jsou skoro prázdné.")
+                                        text("Ale to není jediný priblém kvůli silnému vítru se ti obtížně dýchá a musíš si dát pauzu.")
+                                        cekej(6.5)
+                                        text("Vypadá to že se k tobě z celého jihu něco blíží.")
+                                        cekej(4)
+                                        text("Odhazuje to všechno co se tomu postavý..")
+                                        cekej(3)
+                                        text("Podle rychlosti to během pár minut u tebe.")
+                                        text("\n---")
+                                        while True:
+                                            vlna = input("Nebezpečí> ")
+                                            
+                                            
+                                            if vlna == "666":
+                                                text("???\n")
+                                                
+                                                
+                                            else: 
+                                                text("\nDělal jsi co jsi mohl..")
+                                                text("Konec 5")
+                                                text("Byl jsi rozdrcen mohutnou tlakovou vlnou.")
+                                                konec_hry()
+                                
+                                
+                                    else:
+                                        text("\nVypadá že tohle nejde.")
+                                
+                                
+                            else:
+                                text("\nVypadá to že takováto možnost není.")
                         
                         
                     elif("zpatky" in dum_notes or "zpet" in dum_notes):
@@ -351,9 +422,11 @@ def zacni_hru():
         text("Na východě se nachází nějaké obydlý.")
         cekej(2)
         text("Můžeš se vrátit zpět na jíh do vesnice.")
-        text("\n---")
-        while True:
-            les = input("V LESE> ")
+        #text("\n---")
+        #while True:
+        print("TOHLE JEŠTĚ NĚNÍ HOTOVÉ ZKUS TO JINAK!!!")
+        zacni_hru()
+            #les = input("V LESE> ")
             #Dodělat
 
     

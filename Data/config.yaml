@@ -1,3 +1,4 @@
-debug_mode: true    # Zapne/vypne DEBUGMODE.
-zadne_pauzy: true   # Zapne/vypne pauzu mezi dalším řádkem. (time.sleep)
-animace_textu: false # Zapne/vypne animaci psaní textu, pokud je toto zapnuto pro správné fungování nastav "zadne_pauzy: true"!
+#TODO: language: cs             # Mění jazyk textů hry. (cs - Czech, sk - Slovak, uk - Ukrainian, en - English)
+debug_mode: false        # Zapne/vypne DEBUGMODE.
+zadne_pauzy: true        # Zapne/vypne pauzu mezi dalším řádkem. (time.sleep)
+animace_textu: false     # Zapne/vypne animaci psaní textu, pokud je toto zapnuto pro správné fungování nastav "zadne_pauzy: true"!
