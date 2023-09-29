@@ -10,6 +10,8 @@ import yaml
 import sys
 import random
 
+#TODO: predcitaní
+
 # načte config soubor
 with open('config.yaml', 'r') as f:
     config = yaml.safe_load(f)
@@ -58,6 +60,45 @@ def prehraj_hudbu(seznam_souboru):
 
 # Funkce DEBUGMODE byly odstraněny aby nebyly použity pro podvádění.
 
+def nejde():
+    jinak = random.randint(0,200)
+    if jinak <= 10:
+        text("\nVypadá to, že takhle to asi nepůjde..")
+    elif jinak >= 20 and jinak <= 30:
+        text("\nTakováto možnost asi není.")
+    elif jinak >= 30 and jinak <= 40:
+        text("\nTohle nejde.")
+    elif jinak >= 40 and jinak <= 50:
+        text("\nTakto to nepůjde.")
+    elif jinak >= 50 and jinak <= 60:
+        text("\nNe, ne. Tohle nejde.")
+    elif jinak >= 60 and jinak <= 70:
+        text("\nTakto to nefunguje.")
+    elif jinak >= 70 and jinak <= 80:
+        text("\nHele tohle nebude fungovat. Zkus to jinak.")
+    elif jinak >= 80 and jinak <= 90:
+        text("\nZkus to jinak")
+    elif jinak >= 90 and jinak <= 100:
+        text("\nTakto to nepůjde.")
+    elif jinak >= 100 and jinak <= 110:
+        text("\nTakhle by to asi nefungovalo.")
+    elif jinak >= 120 and jinak <= 130:
+        text("\nTakto to asi autor nezamýšlel zkus to jinak")
+    elif jinak >= 130 and jinak <=140:
+        text("\nNe, ne. Tkato to mepůjde!")
+    elif jinak >= 140 and jinak <=150:
+        text("\nVypadá že to takto nepůjde, pokus se o to jinak.")
+    elif jinak >= 150 and jinak <=160:
+        text("\nTohle nyvypadá jako řešení. Pokus se to vyřešit jinak.")
+    elif jinak >= 160 and jinak <=170:
+        text("\nNerozumím ti takto to asi nepůjde.")
+    elif jinak >= 170 and jinak <=180:
+        text("\nNerozumím příkazu.")
+    elif jinak >= 180 and jinak <=190:
+        text("\nTohle neznám. zkus to jinak.")
+    else:
+        text("\nPokus se o to jinak.")
+
 def uvod():
     #text("Vítej ve hře 'Změna osudu: Apokalypsa'")
     cekej(1)
@@ -72,6 +113,11 @@ def uvod():
 def zacni_hru():
     prikaz = input("> ").lower()
 
+    if debug_mode and "skoc" in prikaz:
+        # Přeskakuje se na určitou linku tady
+        skok_na_radek = int(input("Zadej číslo řádku, na který chceš přeskočit: "))
+        text(f"Přeskakuješ na řádek {skok_na_radek}")
+        return
 
     if "prozkoumej" in prikaz:
         text("\nProzkoumáváš okolí...")
@@ -191,7 +237,7 @@ def zacni_hru():
 
 
                                     else:
-                                        print("\nNerozumím. Zkus to jinak.")
+                                        nejde()
 
 
                             elif "sever" in notes or "konec" in notes or "vesnice" in notes:
@@ -270,7 +316,7 @@ def zacni_hru():
                                                                 
                                                                 
                                                             else:
-                                                                print("\nPokus se napsat jednodušší odpověď.")
+                                                                nejde()
                                                     
                                                     
                                                     else:
@@ -290,15 +336,15 @@ def zacni_hru():
                                             
                                             
                                             else: 
-                                                text("\nNerozumím ti, zkus to jinak.")
+                                                nejde()
                                                 
                                                 
                                     else:
-                                        text("\nNechi nic říkat ale myslím že tohle nepůjde..")
+                                        nejde()
                                         
                                         
                             else:
-                                text("\nTohle nevypadá jako řešení, zkus to trošku jinak.")
+                                nejde()
 
 
                     elif "ven" in dum_hrouceni or "vybehni" in dum_hrouceni:
@@ -308,7 +354,7 @@ def zacni_hru():
 
 
                     else:
-                        print("\nNerozumím co mám dělat.")
+                        nejde()
                     
 
 
@@ -392,28 +438,28 @@ def zacni_hru():
                                 
                                 
                                     else:
-                                        text("\nVypadá že tohle nejde.")
-                                
-                                
+                                        nejde()
+
+
                             else:
-                                text("\nVypadá to že takováto možnost není.")
-                        
-                        
+                                nejde()
+
+
                     elif("zpatky" in dum_notes or "zpet" in dum_notes):
                         text("\nJsi spátky tam kde jsi začal.")
                         cekej(4)
                         text("Teď už můžeš jít jen a pouze na jih")
                         zacni_hru()
-                        
-                        
+
+
                     else:
-                        text("\nTohle nevypadá že by to mělo fungovat. Zkus to jinak.")
-                
+                        nejde()
+
 
             else:
-                print("\nNerozumím příkazu.")
+                nejde()
 
-    
+
     elif prikaz == "jdi j" or prikaz == "jdi jih" or prikaz == "jdi na jih":
         text("\nPřišel jsi do lesa jsi vyčerpaný z té cesty...")
         cekej(1)
@@ -421,24 +467,73 @@ def zacni_hru():
         cekej(1.5)
         text("Na východě se nachází nějaké obydlý.")
         cekej(2)
-        text("Můžeš se vrátit zpět na jíh do vesnice.")
-        #text("\n---")
-        #while True:
-        print("TOHLE JEŠTĚ NĚNÍ HOTOVÉ ZKUS TO JINAK!!!")
-        zacni_hru()
-            #les = input("V LESE> ")
-            #Dodělat
+        text("Můžeš se vrátit zpět na sever do vesnice.")
+        text("\n---")
+        while True:
+            les = input("V LESE> ")
 
-    
+
+            if "studanka" in les or "studance" in les or "studanku" in les:
+                text("\nPřišel jsi k lesní studánce.. je vyschlá. Vypadá že tady už voda dlouho nebyla.")
+                cekej(7)
+                text("Nic moc tady není. Vrátil jsi se zpátky na cestu.")
+
+
+            elif("obydly" in les or "obydlimu" in les):
+                text("\nPokračuješ cestou na jih. ")
+                cekej(4)
+                text("Přicházíš k plotu.")
+                text("\n---")
+                while True:
+                    plot = input("Plot> ")
+
+
+                    if "prelez" in plot:
+                        text("\nPlot nelze přelézt. Je vysoký a na vrcholu ostnatý.")
+                        cekej(5)
+                        text("Tip: Zkus najít nějaký vchod nebo branku.")
+
+
+                    elif("branku" in plot or "vchod" in plot or "otevři" in plot or "obejdi" in plot or "najdi" in plot):
+                        text("\nPokusíš se najít nějaký vchod.")
+                        cekej(4)
+                        text("Našel jsi vchod, je to spíše vjezd. Je opravu veliký.")
+                        text("\n---")
+                        while True:
+                            vstup = input("Vstup> ")
+                            print("ZDE NENÍ KÓD JEŠTĚ HOTOVÝ!!! AUTOMATICKY SE VRACÍŠ NA ZAČÁTEK..")
+                            text("\nJsi tam kde jsi začal.")
+                            zacni_hru()
+                        
+                        
+                    elif("podivej" in plot or "nahledni" in plot):
+                        text("\nVypadá že za plotem se nachází nějaká hlídaná zóna.")
+                        cekej(5)
+                        text("Vypadá to jako nějaký hlídací systém. Jaké si kamery hlídají celý prostor.")
+                        cekej(6)
+                        text("Vypadá to že tam nikdo jiný není je tam naprosté ticho.")
+                        cekej(4)
+                        text("Asi tam můžeš vejít.")
+                        
+                        
+                    elif("zpet" in plot or "zpatky" in plot):
+                        text("\nNemohl jsi najít přesnou cestu zpátky, chvíli ti to trvalo ale jsi zase ve vesnici.")
+                        zacni_hru()
+
+
+                    else:
+                        nejde()
+
+
+            else:
+                nejde()
+
 
     elif "zapad" in prikaz or "vychod" in prikaz:
         text("\nTam to nevypadá bezpečně, radši zůstaneš.")
         text("\n---")
         zacni_hru()
-        
 
-    elif prikaz == "konec":
-        konec_hry()
 
 
     else:
@@ -465,7 +560,6 @@ if debug_mode:
     uvod()
     print("REŽIM DEBUGMODE JE ZAPNUTÝ!")
     zacni_hru()
-    print("REŽIM DEBUGMODE JE ZAPNUTÝ!")
     print("REŽIM DEBUGMODE JE ZAPNUTÝ!")
 else:
     uvod()
