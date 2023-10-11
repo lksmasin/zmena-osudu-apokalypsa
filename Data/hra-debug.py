@@ -28,6 +28,9 @@ pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 # Inicializace autosestartování clolorama nastavení
 init(autoreset = True)
 
+# Autoaticky resetuje barvy
+init(autoreset = True)
+
 # Seznam souborů s hudbou
 seznam_souboru = ["hudba/hudba1.wav", "hudba/hudba2.wav", "hudba/hudba3.wav", "hudba/hudba4.wav"]
 
@@ -63,174 +66,168 @@ def prehraj_hudbu(seznam_souboru):
 def nejde():
     jinak = random.randint(0,200)
     if jinak <= 10:
-        text("\nVypadá to, že takhle to asi nepůjde..")
+        text(Fore.RED + "\nVypadá to, že takhle to asi nepůjde..")
     elif jinak >= 20 and jinak <= 30:
-        text("\nTakováto možnost asi není.")
+        text(Fore.RED + "\nTakováto možnost asi není.")
     elif jinak >= 30 and jinak <= 40:
-        text("\nTohle nejde.")
+        text(Fore.RED + "\nTohle nejde.")
     elif jinak >= 40 and jinak <= 50:
-        text("\nTakto to nepůjde.")
+        text(Fore.RED + "\nTakto to nepůjde.")
     elif jinak >= 50 and jinak <= 60:
-        text("\nNe, ne. Tohle nejde.")
+        text(Fore.RED + "\nNe, ne. Tohle nejde.")
     elif jinak >= 60 and jinak <= 70:
-        text("\nTakto to nefunguje.")
+        text(Fore.RED + "\nTakto to nefunguje.")
     elif jinak >= 70 and jinak <= 80:
-        text("\nHele tohle nebude fungovat. Zkus to jinak.")
+        text(Fore.RED + "\nHele tohle nebude fungovat. Zkus to jinak.")
     elif jinak >= 80 and jinak <= 90:
-        text("\nZkus to jinak")
+        text(Fore.RED + "\nZkus to jinak")
     elif jinak >= 90 and jinak <= 100:
-        text("\nTakto to nepůjde.")
+        text(Fore.RED + "\nTakto to nepůjde.")
     elif jinak >= 100 and jinak <= 110:
-        text("\nTakhle by to asi nefungovalo.")
+        text(Fore.RED + "\nTakhle by to asi nefungovalo.")
     elif jinak >= 120 and jinak <= 130:
-        text("\nTakto to asi autor nezamýšlel zkus to jinak")
+        text(Fore.RED + "\nTakto to asi autor nezamýšlel zkus to jinak")
     elif jinak >= 130 and jinak <=140:
-        text("\nNe, ne. Tkato to mepůjde!")
+        text(Fore.RED + "\nNe, ne. Tkato to mepůjde!")
     elif jinak >= 140 and jinak <=150:
-        text("\nVypadá že to takto nepůjde, pokus se o to jinak.")
+        text(Fore.RED + "\nVypadá že to takto nepůjde, pokus se o to jinak.")
     elif jinak >= 150 and jinak <=160:
-        text("\nTohle nyvypadá jako řešení. Pokus se to vyřešit jinak.")
+        text(Fore.RED + "\nTohle nyvypadá jako řešení. Pokus se to vyřešit jinak.")
     elif jinak >= 160 and jinak <=170:
-        text("\nNerozumím ti takto to asi nepůjde.")
+        text(Fore.RED + "\nNerozumím ti takto to asi nepůjde.")
     elif jinak >= 170 and jinak <=180:
-        text("\nNerozumím příkazu.")
+        text(Fore.RED + "\nNerozumím příkazu.")
     elif jinak >= 180 and jinak <=190:
-        text("\nTohle neznám. zkus to jinak.")
+        text(Fore.RED + "\nTohle neznám. zkus to jinak.")
     else:
-        text("\nPokus se o to jinak.")
+        text(Fore.RED + "\nPokus se o to jinak.")
 
 def uvod():
     #text("Vítej ve hře 'Změna osudu: Apokalypsa'")
     cekej(1)
-    text("Rok 2050. Země se ocitla v chaosu po příletu mimozemšťanů.")
+    text(Fore.BLUE + "Rok 2050. Země se ocitla v chaosu po příletu mimozemšťanů.")
     cekej(1.5)
-    text("Začíná tvá cesta přežití a pátrání po pravdě")
+    text(Fore.BLUE + "Začíná tvá cesta přežití a pátrání po pravdě")
     cekej(1.5)
     print("-----------------")
-    text("Můžeš prozkoumat okolí aby jsi zjistil co je kolem tebe")
+    text(Fore.YELLOW + "Můžeš prozkoumat okolí aby jsi zjistil co je kolem tebe")
     text("---")
 
 def zacni_hru():
-    prikaz = input("> ").lower()
-
-    if debug_mode and "skoc" in prikaz:
-        # Přeskakuje se na určitou linku tady
-        skok_na_radek = int(input("Zadej číslo řádku, na který chceš přeskočit: "))
-        text(f"Přeskakuješ na řádek {skok_na_radek}")
-        return
+    prikaz = input(Fore.GREEN + "> ").lower()
 
     if "prozkoumej" in prikaz:
-        text("\nProzkoumáváš okolí...")
+        text(Fore.YELLOW + "\nProzkoumáváš okolí...")
         cekej(1)
-        text("Na severu jsi nalezl starou budovu, zdá se, že v ní něco může být.")
-        text("Vypadá to že směrem na jih končí vesnice a začíná les.")
+        text(Fore.YELLOW + "Na severu jsi nalezl starou budovu, zdá se, že v ní něco může být.")
+        text(Fore.YELLOW + "Vypadá to že směrem na jih končí vesnice a začíná les.")
         text("\n---")
         zacni_hru()
 
 
     elif prikaz == "jdi s" or prikaz == "jdi sever" or prikaz == "jdi na sever":
         text("\n")
-        text("Nacházíš se ve staré budově vypadá to že se každou chvíli zhroutí.")
+        text(Fore.YELLOW + "Nacházíš se ve staré budově vypadá to že se každou chvíli zhroutí.")
         cekej(1)
-        text("Vidíš lékarničku a stůl..")
+        text(Fore.YELLOW + "Vidíš lékarničku a stůl..")
         text("\n---")
         while True:
-            dum = input("V domě> ")
+            dum = input(Fore.GREEN + "V domě> ")
 
 
             if "lekarnicku" in dum or "lekarnicka" in dum:
-                text("\nV lékarničce je obvaz a prážky proti bolesti. Vzal jsi si je na později.")
+                text(Fore.YELLOW + "\nV lékarničce je obvaz a prážky proti bolesti. Vzal jsi si je na později.")
                 cekej(1)
-                text("Najednou se ozve obrovská rána 'Boom' a celý barák se začne na tebe horutit.")
+                text(Fore.YELLOW + "Najednou se ozve obrovská rána 'Boom' a celý barák se začne na tebe horutit.")
                 cekej(1.5)
-                text("Můžeš rychle vyběhnout nebo zkusit vzít notes který jsi spatřil na stole a proskočit oknem")
+                text(Fore.YELLOW + "Můžeš rychle vyběhnout nebo zkusit vzít notes který jsi spatřil na stole a proskočit oknem")
                 text("\n---")
                 while True:
-                    dum_hrouceni = input("V domě> ")
+                    dum_hrouceni = input(Fore.GREEN + "V domě> ")
 
 
                     if "notes" in dum_hrouceni:
-                        text("\nVapadá to že se to podařilo..!")
+                        text(Fore.YELLOW + "\nVapadá to že se to podařilo..!")
                         cekej(1)
-                        text("Pak si ubědomíš že v ruce držíš jen ten notes a lékárníčku jsi v tom spěchu musel upustit.")
+                        text(Fore.YELLOW + "Pak si ubědomíš že v ruce držíš jen ten notes a lékárníčku jsi v tom spěchu musel upustit.")
                         cekej(1.5)
-                        text("Z ruky ti teče lehce krev, ne nijak hrozně ale raději se budeš pobybovat pomaleji ať se ti nezamotá hlava.")
+                        text(Fore.YELLOW + "Z ruky ti teče lehce krev, ne nijak hrozně ale raději se budeš pobybovat pomaleji ať se ti nezamotá hlava.")
                         cekej(3.5)
-                        text("Otevíráš notes...")
+                        text(Fore.YELLOW + "Otevíráš notes...")
                         cekej(3)
-                        text("Vypadne z něj pár stránek (asi 2) a uletí ve větru")
+                        text(Fore.YELLOW + "Vypadne z něj pár stránek (asi 2) a uletí ve větru")
                         cekej(2.5)
-                        text("Dozvídáš se že notes patřil jakému si Petrovi a obsahuje potvrzené konspirační teorie")
+                        text(Fore.YELLOW + "Dozvídáš se že notes patřil jakému si Petrovi a obsahuje potvrzené konspirační teorie")
                         cekej(5.5)
-                        text("""
+                        text(Fore.YELLOW + """
 Čteš o bermudském trojúhelníku a tajné mimozemské základně v něm:
   Bermudský trojúhelník podle konspirační teorie skrývá vstup do tajné mimozemské základny umístěné pod mořským dnem, kterou údajně postavili mimozemšťané tisíce let před naším letopočtem. Tato základna slouží jako výzkumné a monitorovací středisko, odkud údajně pozorují lidskou civilizaci a mohou být spojení s určitými vládními organizacemi.
                             """)
                         cekej(5)
-                        text("Pak jsi všimneš že jsou je tam dalších asi 6 teorií ale jen 2 jsou ozančeny jako potvrzené.")
+                        text(Fore.YELLOW + "Pak jsi všimneš že jsou je tam dalších asi 6 teorií ale jen 2 jsou ozančeny jako potvrzené.")
                         cekej(3.5)
-                        text("Označená je první s bermunským trojúhelníkem a pak ještě jedna s názvem 'Nefilimská rada'.")
+                        text(Fore.YELLOW + "Označená je první s bermunským trojúhelníkem a pak ještě jedna s názvem 'Nefilimská rada'.")
                         cekej(4)
-                        text("Můžeš si dále číst notes nebo pokračovat směrem na sever, na konec vesnice.")
+                        text(Fore.YELLOW + "Můžeš si dále číst notes nebo pokračovat směrem na sever, na konec vesnice.")
                         text("\n---")
                         while True:
-                            notes = input("Notes> ")
+                            notes = input(Fore.GREEN + "Notes> ")
 
 
                             if "pokracovat" in notes or "cist" in notes or "notes" in notes or "pokracuj" in notes:
-                                text("\nDozvídáš se že: Podle konspirační teorie spolupracuje tajná organizace 'Nefilimská rada' s mimozemskými entitami Anunnaki, kteří údajně přicházejí na Zemi s úmyslem ovládnout lidstvo a vyvolat apokalyptické události.")
+                                text(Fore.YELLOW + "\nDozvídáš se že: Podle konspirační teorie spolupracuje tajná organizace 'Nefilimská rada' s mimozemskými entitami Anunnaki, kteří údajně přicházejí na Zemi s úmyslem ovládnout lidstvo a vyvolat apokalyptické události.")
                                 cekej(5)
-                                text("Najednou se začne vedat vítr a nebe se zatahuje...")
+                                text(Fore.YELLOW + "Najednou se začne vedat vítr a nebe se zatahuje...")
                                 cekej(3)
-                                text("Zdá se že by jsi neměl ztrácet čas a vydat se nějak jinam.")
+                                text(Fore.YELLOW + "Zdá se že by jsi neměl ztrácet čas a vydat se nějak jinam.")
                                 cekej(1.5)
-                                text("Můžeš prozkoumat okolí.")
+                                text(Fore.YELLOW + "Můžeš prozkoumat okolí.")
                                 text("\n---")
                                 while True:
-                                    po_notes = input("Notes> ")
+                                    po_notes = input(Fore.GREEN + "Notes> ")
                                     
 
                                     if "prozkoumej" in po_notes:
-                                        text("\nNacházíš se na zahradě za domem vidíš branku kterou můžeš odejít.")
+                                        text(Fore.YELLOW + "\nNacházíš se na zahradě za domem vidíš branku kterou můžeš odejít.")
                                         text("\n---")
 
 
                                     elif "branka" in po_notes or "brankou" in po_notes or "odejdi" in po_notes or "":
-                                        text("\nOtvířáš branku mezitím se zamyslíš nad tím že vítr nabírá pořád větší rychlost..")
+                                        text(Fore.YELLOW + "\nOtvířáš branku mezitím se zamyslíš nad tím že vítr nabírá pořád větší rychlost..")
                                         cekej(4)
-                                        text("Má už takovou sílu že by byl scopný odfouknout tvůj telefon.")
+                                        text(Fore.YELLOW + "Má už takovou sílu že by byl scopný odfouknout tvůj telefon.")
                                         cekej(4)
-                                        text("Najednou uvdíš že někdo vedle rozsvítil baterku.. svítí na tebe.")
+                                        text(Fore.YELLOW + "Najednou uvdíš že někdo vedle rozsvítil baterku.. svítí na tebe.")
                                         cekej(4.5)
-                                        text("Podíváš se na něja ale nevídíš mu do tváře vítr je tak silný že výří všechen prach kolem tebe, takže lze vidět pouze pár metrů před sebe.")
+                                        text(Fore.YELLOW + "Podíváš se na něja ale nevídíš mu do tváře vítr je tak silný že výří všechen prach kolem tebe, takže lze vidět pouze pár metrů před sebe.")
                                         cekej(6.5)
-                                        text("Ozve se rána.. A přestaneš vnímat.")
+                                        text(Fore.YELLOW + "Ozve se rána.. A přestaneš vnímat.")
                                         cekej(4)
-                                        text("Probouzíš se svázaný k židly. Nemůžeš se hýbat ale můžeš mluvit.")
+                                        text(Fore.YELLOW + "Probouzíš se svázaný k židly. Nemůžeš se hýbat ale můžeš mluvit.")
                                         cekej(4.5)
-                                        text("Otevřou se dveře a do místnosti vejde člověk. Mluví na tebe ale ty mu nerozumíš..")
+                                        text(Fore.YELLOW + "Otevřou se dveře a do místnosti vejde člověk. Mluví na tebe ale ty mu nerozumíš..")
                                         cekej(5)
-                                        text("Vypadá to že se tě na něco ptá.")
+                                        text(Fore.YELLOW + "Vypadá to že se tě na něco ptá.")
                                         text("\n---")
                                         while True:
-                                            clovek = input("človek> ")
+                                            clovek = input(Fore.GREEN + "človek> ")
                                             
 
                                             if "Nechapu" in clovek or "deje" in clovek or "nerozumim" in clovek or "co" in clovek or "je" in clovek:
-                                                text("\nUmíráš po necelých dvou hodinách.")
+                                                text(Fore.YELLOW + "\nUmíráš po necelých dvou hodinách.")
                                                 time.sleep(3)
                                                 text("Konec 1..")
                                                 konec_hry()
 
 
                                             else:
-                                                text("\nVypadá že to fungovalo.. Přisel k tobě a odvázal tě.")
+                                                text(Fore.YELLOW + "\nVypadá že to fungovalo.. Přisel k tobě a odvázal tě.")
                                                 cekej(3)
-                                                text("Člověk: Probuďte se, probuď te se!, a dá vám lehkou facku.")
+                                                text(Fore.YELLOW + "Člověk: Probuďte se, probuď te se!, a dá vám lehkou facku.")
                                                 cekej(4.5)
-                                                text("Probouzíš se v nemocnici..")
+                                                text(Fore.YELLOW + "Probouzíš se v nemocnici..")
                                                 cekej(3)
-                                                text("Doktorka: Jste vzhůru.. No výborně řekl by jste nám jak se jmenujete?")
+                                                text(Fore.YELLOW + "Doktorka: Jste vzhůru.. No výborně řekl by jste nám jak se jmenujete?")
                                                 time.sleep(4)
                                                 text("Konec 2.. Celé to bylo jen sen?")
                                                 konec_hry()
@@ -241,74 +238,74 @@ def zacni_hru():
 
 
                             elif "sever" in notes or "konec" in notes or "vesnice" in notes:
-                                text("\nUšel jsi asi necelé dva kilometry a až jsi opravdu vyčerpaný.")
+                                text(Fore.YELLOW + "\nUšel jsi asi necelé dva kilometry a až jsi opravdu vyčerpaný.")
                                 cekej(5)
-                                text("Silný vítr výří prach takže se ti špatně dýchá.")
+                                text(Fore.YELLOW + "Silný vítr výří prach takže se ti špatně dýchá.")
                                 cekej(4)
-                                text("Vedle tebe asi 30 metrů je dům a vedle něho je nastartované auto, má zapnuté světla ale nevypadá že by tam někdo seděl.")
+                                text(Fore.YELLOW + "Vedle tebe asi 30 metrů je dům a vedle něho je nastartované auto, má zapnuté světla ale nevypadá že by tam někdo seděl.")
                                 cekej(6)
-                                text("Rozhodnul jsi se přiblížit k autu a nahlédnout jestli tam někdo je..")
+                                text(Fore.YELLOW + "Rozhodnul jsi se přiblížit k autu a nahlédnout jestli tam někdo je..")
                                 cekej(5)
-                                text("Auto je prázdné a odemčené.")
+                                text(Fore.YELLOW + "Auto je prázdné a odemčené.")
                                 text("\n---")
                                 while True:
-                                    auto = input("Auto> ")
+                                    auto = input(Fore.GREEN + "Auto> ")
 
 
                                     if "nastup" in auto or "auta" in auto or "auto" in auto:
-                                        text("\nNastoupil jsi do auta..")
+                                        text(Fore.YELLOW + "\nNastoupil jsi do auta..")
                                         cekej(3)
-                                        text("A vydal jsi se podle cedule do města.")
+                                        text(Fore.YELLOW + "A vydal jsi se podle cedule do města.")
                                         cekej(3)
-                                        text("Jedeš do města.. počkej 15s")
+                                        text(Fore.YELLOW + "Jedeš do města.. počkej 15s")
                                         cekej(15)
-                                        text("Přijel jsi do města kde zní nouzové sirény.")
+                                        text(Fore.YELLOW + "Přijel jsi do města kde zní nouzové sirény.")
                                         cekej(3)
-                                        text("Můžeš se vydat do místí samoobsluhy a najíst se tak. Nebo se mužeš rozhlédnout kolem.")
+                                        text(Fore.YELLOW + "Můžeš se vydat do místí samoobsluhy a najíst se tak. Nebo se mužeš rozhlédnout kolem.")
                                         text("\n---")
                                         while True:
-                                            mesto = input("Město> ")
+                                            mesto = input(Fore.GREEN + "Město> ")
                                             
                                             
                                             if "samoobsluhy" in mesto or "samoobsluha" in mesto:
-                                                text("\nPřicházíš do samoobsluhy..")
+                                                text(Fore.YELLOW + "\nPřicházíš do samoobsluhy..")
                                                 cekej(2)
-                                                text("Obchoj je celý poničený a vykradený.")
+                                                text(Fore.YELLOW + "Obchoj je celý poničený a vykradený.")
                                                 cekej(2)
-                                                text("Vedle pultu uvidíš dva lidi hádající se o tom že by bylo možné že momozemštani přicházejí z nějaké jiné třeba 4D dimenze.")
+                                                text(Fore.YELLOW + "Vedle pultu uvidíš dva lidi hádající se o tom že by bylo možné že momozemštani přicházejí z nějaké jiné třeba 4D dimenze.")
                                                 cekej("7.5")
-                                                text("Zahlédly tě.")
+                                                text(Fore.YELLOW + "Zahlédly tě.")
                                                 cekej(3)
-                                                text("Přicházíš k nim..")
+                                                text(Fore.YELLOW + "Přicházíš k nim..")
                                                 cekej(2)
-                                                text("Podívaly se na tebe..")
+                                                text(Fore.YELLOW + "Podívaly se na tebe..")
                                                 cekej(4)
-                                                text("Jeden z nich se ptá 'Kdo jsi, a co chceš'.")
+                                                text(Fore.YELLOW + "Jeden z nich se ptá 'Kdo jsi, a co chceš'.")
                                                 text("\n---")
                                                 while True:
-                                                    obchod = input("Obchod> ")
+                                                    obchod = input(Fore.GREEN + "Obchod> ")
                                                     
                                                     
                                                     if "co" in obchod or "pomoc" in obchod or "deje" in obchod or "delat" in obchod or "cil" in obchod or "ztraceny" in obchod:
-                                                        text("\nDomlouvají se mezi sebou..")
+                                                        text(Fore.YELLOW + "\nDomlouvají se mezi sebou..")
                                                         cekej(3)
-                                                        text("Druhý znich říká: 'Dobrá pomůžeme ti pod podmínkou že nás budeš na slovo poslouchat. Bereš?'")
+                                                        text(Fore.YELLOW + "Druhý znich říká: 'Dobrá pomůžeme ti pod podmínkou že nás budeš na slovo poslouchat. Bereš?'")
                                                         text("\n---")
                                                         while True:
-                                                            lide = input("Lidé> ")
+                                                            lide = input(Fore.GREEN + "Lidé> ")
                                                             
                                                             
                                                             if "ano" in lide or "jo" in lide or "dobre" in lide or "jasne" in lide or "ok" in lide:
-                                                                text("\nPokračování příště..")
+                                                                text(Fore.YELLOW + "\nPokračování příště..")
                                                                 # Dodělat
                                                                 print("Sleduj GitHub repozitář pro aktualizace! (www.github.com/lksmasin)")
                                                                 konec_hry()
                                                                 
                                                                 
                                                             elif("ne" in lide):
-                                                                text("\nOn: 'Dobře takže budeme muset přistoupit na jiné řešení.")
+                                                                text(Fore.YELLOW + "\nOn: 'Dobře takže budeme muset přistoupit na jiné řešení.")
                                                                 cekej(4)
-                                                                text("Udělá pár kroků a popadne pádlo z potřeb pro vodáky...")
+                                                                text(Fore.YELLOW + "Udělá pár kroků a popadne pádlo z potřeb pro vodáky...")
                                                                 time.sleep(3)
                                                                 text("Konec 3.")
                                                                 text("Byl jsi umlácen pádlem.")
@@ -320,7 +317,7 @@ def zacni_hru():
                                                     
                                                     
                                                     else:
-                                                        text("\nOn: Hele to asi nepůjde!")
+                                                        text(Fore.YELLOW + "\nOn: Hele to asi nepůjde!")
                                                         time.sleep(3)
                                                         text("Konec 4...")
                                                         cekej(2)
@@ -330,9 +327,9 @@ def zacni_hru():
                                                         
 
                                             elif("rozhledni" in mesto):
-                                                text("\nNedaleko je samoobsluha ta by se ti velmy hodila protože máš hlad.")
+                                                text(Fore.YELLOW + "\nNedaleko je samoobsluha ta by se ti velmy hodila protože máš hlad.")
                                                 cekej(5)
-                                                text("Kousek od tebe je i skupinka lidí která něco volá. Asi nějací blázni nebo tak něco..")
+                                                text(Fore.YELLOW + "Kousek od tebe je i skupinka lidí která něco volá. Asi nějací blázni nebo tak něco..")
                                             
                                             
                                             else: 
@@ -348,8 +345,8 @@ def zacni_hru():
 
 
                     elif "ven" in dum_hrouceni or "vybehni" in dum_hrouceni:
-                        text("\nVyběhl jsi ven a vypadá to že jsi celý..")
-                        text("Jsi spátky tam kde jsi začal můžeš jít na jih")
+                        text(Fore.YELLOW + "\nVyběhl jsi ven a vypadá to že jsi celý..")
+                        text(Fore.YELLOW + "Jsi spátky tam kde jsi začal můžeš jít na jih")
                         zacni_hru
 
 
@@ -360,78 +357,78 @@ def zacni_hru():
 
 
             elif "stul" in dum:
-                text("\nNa stole je jakýsi notes, vezmeš jej.")
+                text(Fore.YELLOW + "\nNa stole je jakýsi notes, vezmeš jej.")
                 text("\n---")
                 while True:
-                    dum_notes = input("V domě> ")
+                    dum_notes = input(Fore.GREEN + "V domě> ")
                     
                     
                     if "precti" in dum_notes or "notes" in dum_notes or "otevri" in dum_notes:
-                        text("\nZápis je velmi nečitelný, většinu z něho nemůžeš přečíst.")
+                        text(Fore.YELLOW + "\nZápis je velmi nečitelný, většinu z něho nemůžeš přečíst.")
                         cekej(3)
-                        text("Vypadá to že obsahuje pár informací o tom co se stalo a o tom co se děje a jak mám dále postupovat.")
+                        text(Fore.YELLOW + "Vypadá to že obsahuje pár informací o tom co se stalo a o tom co se děje a jak mám dále postupovat.")
                         cekej(5)
-                        text("Podle notesu by jsi měl nastoupit do auta a odjet do města zastavit se na tamějším úřadě pro evakuaci.")
+                        text(Fore.YELLOW + "Podle notesu by jsi měl nastoupit do auta a odjet do města zastavit se na tamějším úřadě pro evakuaci.")
                         text("\n---")
                         while True:
-                            notes_rozhodnuti = input("Notes> ")
+                            notes_rozhodnuti = input(Fore.GREEN + "Notes> ")
                             
                             
                             if "notes" in notes_rozhodnuti or "notesu" in notes_rozhodnuti or "udelej" in notes_rozhodnuti or "pokracuj" in notes_rozhodnuti:
-                                text("\nMusíš se dostat do města.. Problém je v tom že nemáš jak.")
+                                text(Fore.YELLOW + "\nMusíš se dostat do města.. Problém je v tom že nemáš jak.")
                                 cekej(5)
-                                text("Chtělo by to auto..")
+                                text(Fore.YELLOW + "Chtělo by to auto..")
                                 cekej(3)
-                                text("POZNÁMKA: Zkus se rozhlédnou kolem.")
+                                text(Fore.YELLOW + "POZNÁMKA: Zkus se rozhlédnou kolem.")
                                 
                                 
                             elif("rozhledni" in notes_rozhodnuti or "prozkoumej" in notes_rozhodnuti):
-                                text("\nNacházíš se ve starém domu. V místnosti která by se dala nazvat obývákem.")
+                                text(Fore.YELLOW + "\nNacházíš se ve starém domu. V místnosti která by se dala nazvat obývákem.")
                                 cekej(6)
-                                text("Tento dům má další dvě místnosti, koupelnu a kuchyň.")
+                                text(Fore.YELLOW + "Tento dům má další dvě místnosti, koupelnu a kuchyň.")
                                 cekej(5)
-                                text("K domu spadá něco co vypadá jako garáž.")
+                                text(Fore.YELLOW + "K domu spadá něco co vypadá jako garáž.")
                                 
                                 
                             elif("garaz" in notes_rozhodnuti or "garaze" in notes_rozhodnuti):
-                                text("\nPřicházíš do garáže..")
+                                text(Fore.YELLOW + "\nPřicházíš do garáže..")
                                 cekej(3)
-                                text("Podle očekávání tady žádné auto není ale je zde staré kolo.")
+                                text(Fore.YELLOW + "Podle očekávání tady žádné auto není ale je zde staré kolo.")
                                 text("\n---")
                                 while True:
-                                    garaz = input("Garáž> ")
+                                    garaz = input(Fore.GREEN + "Garáž> ")
                                     
                                     
                                     if "kolo" in garaz or "bicikl" in garaz or "nasedni" in garaz or "nastup" in garaz or "jed" in garaz:
-                                        text("\nTohle kolo má asi už něco za sebou..")
+                                        text(Fore.YELLOW + "\nTohle kolo má asi už něco za sebou..")
                                         cekej(4)
-                                        text("Je celé zrezavělé, pneumatiky jsou vypuštěné.")
+                                        text(Fore.YELLOW + "Je celé zrezavělé, pneumatiky jsou vypuštěné.")
                                         cekej(4)
-                                        text("Naštěstí kousek vedle kola je stůl a na něm pumpička, nafoukneš kolo a můžeš jet.")
+                                        text(Fore.YELLOW + "Naštěstí kousek vedle kola je stůl a na něm pumpička, nafoukneš kolo a můžeš jet.")
                                         cekej(6)
-                                        text("Nafukování kola - čekej 10s . . .")
+                                        text(Fore.YELLOW + "Nafukování kola - čekej 10s . . .")
                                         time.sleep(10.5)
-                                        text("Cesta do města - čekej 25s . . .")
+                                        text(Fore.YELLOW + "Cesta do města - čekej 25s . . .")
                                         time.sleep(12)
-                                        text("Nastal problém! Při cestě jsi si všiml že se pneumatiky vyfukují velmi rychle.. už jsou skoro prázdné.")
-                                        text("Ale to není jediný priblém kvůli silnému vítru se ti obtížně dýchá a musíš si dát pauzu.")
+                                        text(Fore.YELLOW + "Nastal problém! Při cestě jsi si všiml že se pneumatiky vyfukují velmi rychle.. už jsou skoro prázdné.")
+                                        text(Fore.YELLOW + "Ale to není jediný priblém kvůli silnému vítru se ti obtížně dýchá a musíš si dát pauzu.")
                                         cekej(6.5)
-                                        text("Vypadá to že se k tobě z celého jihu něco blíží.")
+                                        text(Fore.YELLOW + "Vypadá to že se k tobě z celého jihu něco blíží.")
                                         cekej(4)
-                                        text("Odhazuje to všechno co se tomu postavý..")
+                                        text(Fore.YELLOW + "Odhazuje to všechno co se tomu postavý..")
                                         cekej(3)
-                                        text("Podle rychlosti to během pár minut u tebe.")
+                                        text(Fore.YELLOW + "Podle rychlosti to během pár minut u tebe.")
                                         text("\n---")
                                         while True:
-                                            vlna = input("Nebezpečí> ")
+                                            vlna = input(Fore.GREEN + "Nebezpečí> ")
                                             
                                             
                                             if vlna == "666":
-                                                text("???\n")
+                                                text(Fore.YELLOW + "???\n")
                                                 
                                                 
                                             else: 
-                                                text("\nDělal jsi co jsi mohl..")
+                                                text(Fore.YELLOW + "\nDělal jsi co jsi mohl..")
                                                 text("Konec 5")
                                                 text("Byl jsi rozdrcen mohutnou tlakovou vlnou.")
                                                 konec_hry()
@@ -446,9 +443,9 @@ def zacni_hru():
 
 
                     elif("zpatky" in dum_notes or "zpet" in dum_notes):
-                        text("\nJsi spátky tam kde jsi začal.")
+                        text(Fore.YELLOW + "\nJsi spátky tam kde jsi začal.")
                         cekej(4)
-                        text("Teď už můžeš jít jen a pouze na jih")
+                        text(Fore.YELLOW + "Teď už můžeš jít jen a pouze na jih")
                         zacni_hru()
 
 
@@ -461,63 +458,63 @@ def zacni_hru():
 
 
     elif prikaz == "jdi j" or prikaz == "jdi jih" or prikaz == "jdi na jih":
-        text("\nPřišel jsi do lesa jsi vyčerpaný z té cesty...")
+        text(Fore.YELLOW + "\nPřišel jsi do lesa jsi vyčerpaný z té cesty...")
         cekej(1)
-        text("Vypadá to že dál na jihu je něco připomínající studánku.")
+        text(Fore.YELLOW + "Vypadá to že dál na jihu je něco připomínající studánku.")
         cekej(1.5)
-        text("Na východě se nachází nějaké obydlý.")
+        text(Fore.YELLOW + "Na východě se nachází nějaké obydlý.")
         cekej(2)
-        text("Můžeš se vrátit zpět na sever do vesnice.")
+        text(Fore.YELLOW + "Můžeš se vrátit zpět na sever do vesnice.")
         text("\n---")
         while True:
-            les = input("V LESE> ")
+            les = input(Fore.GREEN + "V LESE> ")
 
 
             if "studanka" in les or "studance" in les or "studanku" in les:
-                text("\nPřišel jsi k lesní studánce.. je vyschlá. Vypadá že tady už voda dlouho nebyla.")
+                text(Fore.YELLOW + "\nPřišel jsi k lesní studánce.. je vyschlá. Vypadá že tady už voda dlouho nebyla.")
                 cekej(7)
-                text("Nic moc tady není. Vrátil jsi se zpátky na cestu.")
+                text(Fore.YELLOW + "Nic moc tady není. Vrátil jsi se zpátky na cestu.")
 
 
             elif("obydly" in les or "obydlimu" in les):
-                text("\nPokračuješ cestou na jih. ")
+                text(Fore.YELLOW + "\nPokračuješ cestou na jih. ")
                 cekej(4)
-                text("Přicházíš k plotu.")
+                text(Fore.YELLOW + "Přicházíš k plotu.")
                 text("\n---")
                 while True:
-                    plot = input("Plot> ")
+                    plot = input(Fore.GREEN + "Plot> ")
 
 
                     if "prelez" in plot:
-                        text("\nPlot nelze přelézt. Je vysoký a na vrcholu ostnatý.")
+                        text(Fore.YELLOW + "\nPlot nelze přelézt. Je vysoký a na vrcholu ostnatý.")
                         cekej(5)
-                        text("Tip: Zkus najít nějaký vchod nebo branku.")
+                        text(Fore.YELLOW + "Tip: Zkus najít nějaký vchod nebo branku.")
 
 
                     elif("branku" in plot or "vchod" in plot or "otevři" in plot or "obejdi" in plot or "najdi" in plot):
-                        text("\nPokusíš se najít nějaký vchod.")
+                        text(Fore.YELLOW + "\nPokusíš se najít nějaký vchod.")
                         cekej(4)
-                        text("Našel jsi vchod, je to spíše vjezd. Je opravu veliký.")
+                        text(Fore.YELLOW + "Našel jsi vchod, je to spíše vjezd. Je opravu veliký.")
                         text("\n---")
                         while True:
-                            vstup = input("Vstup> ")
+                            vstup = input(Fore.GREEN + "Vstup> ")
                             print("ZDE NENÍ KÓD JEŠTĚ HOTOVÝ!!! AUTOMATICKY SE VRACÍŠ NA ZAČÁTEK..")
                             text("\nJsi tam kde jsi začal.")
                             zacni_hru()
                         
                         
                     elif("podivej" in plot or "nahledni" in plot):
-                        text("\nVypadá že za plotem se nachází nějaká hlídaná zóna.")
+                        text(Fore.YELLOW + "\nVypadá že za plotem se nachází nějaká hlídaná zóna.")
                         cekej(5)
-                        text("Vypadá to jako nějaký hlídací systém. Jaké si kamery hlídají celý prostor.")
+                        text(Fore.YELLOW + "Vypadá to jako nějaký hlídací systém. Jaké si kamery hlídají celý prostor.")
                         cekej(6)
-                        text("Vypadá to že tam nikdo jiný není je tam naprosté ticho.")
+                        text(Fore.YELLOW + "Vypadá to že tam nikdo jiný není je tam naprosté ticho.")
                         cekej(4)
-                        text("Asi tam můžeš vejít.")
+                        text(Fore.YELLOW + "Asi tam můžeš vejít.")
                         
                         
                     elif("zpet" in plot or "zpatky" in plot):
-                        text("\nNemohl jsi najít přesnou cestu zpátky, chvíli ti to trvalo ale jsi zase ve vesnici.")
+                        text(Fore.YELLOW + "\nNemohl jsi najít přesnou cestu zpátky, chvíli ti to trvalo ale jsi zase ve vesnici.")
                         zacni_hru()
 
 
@@ -530,14 +527,14 @@ def zacni_hru():
 
 
     elif "zapad" in prikaz or "vychod" in prikaz:
-        text("\nTam to nevypadá bezpečně, radši zůstaneš.")
+        text(Fore.RED + "\nTam to nevypadá bezpečně, radši zůstaneš.")
         text("\n---")
         zacni_hru()
 
 
 
     else:
-        print("\nNeplatný příkaz. Zkus to znovu.")
+        print(Fore.RED + "\nNeplatný příkaz. Zkus to znovu.")
         zacni_hru()
 
 
